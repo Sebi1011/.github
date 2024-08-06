@@ -16,20 +16,14 @@ runs:
   steps:
     - name: Call parameter
       shell: bash
-      run: echo "${{ github.event.inputs.platform }}"
+      run: |
+        echo "${{ github.event.inputs.platform }}"
+        echo "${{ github.event.inputs.PROJECT-PATH }}"
 
     - name: Install Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.8'
-
-    - name: Set flutter path variables
-      shell: bash
-      if: |
-        ${{ github.event.inputs.platform == 'flutter' }} &&
-        ${{ github.event.inputs.PROJECT-PATH }}
-      run: |
-        echo "PROJECT-PATH=~/.pub-cache" >> $GITHUB_ENV
 
     - name: Run Python Script
       shell: bash
