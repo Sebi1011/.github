@@ -27,4 +27,4 @@ runs:
 
     - name: Run Python Script
       shell: bash
-      run: python ${{ github.action_path }}/src/call_paths.py --dir ${{ github.event.inputs.PROJECT-PATH }} --platform ${{ github.event.inputs.platform }}
+      run: python ${{ github.action_path }}/src/call_paths.py --dir ${{ inputs.PROJECT-PATH }} --platform ${{ inputs.platform }}
