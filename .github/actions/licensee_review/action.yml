@@ -1,0 +1,29 @@
+name: 'TestProj'
+description: 'Takes a parameter and executes python script'
+author: Sebi1011
+
+inputs:
+  platform:
+    description: 'ios/flutter'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Call parameter
+      run: echo "${{ github.event.inputs.platform }}"
+
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.8'
+
+    - name: Set flutter path variables
+      if: |
+        ${{ github.event.inputs.platform == 'flutter' }} &&
+        ${{ github.event.inputs.PROJECT-PATH }}
+      run: |
+        echo "PROJECT-PATH=~/.pub-cache" >> $GITHUB_ENV
+
+    - name: Run Python Script
+      run: python ${{ github.action_path }}/src/call_paths.py --dir ${{ github.event.inputs.PROJECT-PATH }} --platform ${{ github.event.inputs.platform
