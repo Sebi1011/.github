@@ -8,7 +8,7 @@ parser.add_argument('--dir',
                     help='',
                     required=True)
 
-parser.add_argument('--plaform',
+parser.add_argument('--platform',
                     metavar='path',
                     type=str,
                     help='',
