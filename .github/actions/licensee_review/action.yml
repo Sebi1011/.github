@@ -7,6 +7,9 @@ inputs:
     description: 'ios/flutter'
     required: true
     default: 'flutter'
+  PROJECT-PATH:
+    description: 'path to project'
+    required: true
 
 runs:
   using: "composite"
