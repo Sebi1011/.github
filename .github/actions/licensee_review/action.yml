@@ -6,6 +6,7 @@ inputs:
   platform:
     description: 'ios/flutter'
     required: true
+    default: 'flutter'
 
 runs:
   using: 'composite'
